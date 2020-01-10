@@ -89,9 +89,9 @@ public class AppointmentsService
 		res = dao.update(id, app);
 
 		if (res == 0) {
-				return;
+			return;
 		} else {
-				throw new WebApplicationException(404); //not found
+			throw new WebApplicationException(404); //not found
 		}
 	}
 
@@ -104,9 +104,9 @@ public class AppointmentsService
 		res = dao.delete(id);
 
 		if (res == 0) {
-				return;
+			return;
 		} else {
-				throw new WebApplicationException(404); //not found
+			throw new WebApplicationException(404); //not found
 		}
 	}
 }

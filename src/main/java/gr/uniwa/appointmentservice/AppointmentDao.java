@@ -8,9 +8,6 @@ package gr.uniwa.appointmentservice;
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.ws.rs.DELETE;
 
 /**
  *
@@ -27,7 +24,8 @@ public class AppointmentDao
 		Connection conn = null;
 		try {
 			Class.forName("org.sqlite.JDBC");
-			conn = DriverManager.getConnection("jdbc:sqlite:/home/evan/Documents/netprog/sqlite.db");
+			conn = DriverManager.getConnection(
+					"jdbc:sqlite:/home/evan/Documents/netprog/sqlite.db");
 		} catch (SQLException | ClassNotFoundException e) {
 			System.out.println("getConnection!" + e.getMessage());
 		}
@@ -118,7 +116,8 @@ public class AppointmentDao
 				date = resultSet.getString("date");
 				time = resultSet.getString("time");
 
-				appointment = new Appointment(id, patient, doctor, room, date, time);
+				appointment = new Appointment(id, patient, doctor, room, date,
+											  time);
 			}
 		} catch (SQLException e) {
 			System.out.println("retrieve!" + e.getMessage());
@@ -174,8 +173,8 @@ public class AppointmentDao
 	 */
 	public int update(int id, Appointment app) {
 		String sql = "UPDATE appointments set "
-					 + "\"patient\" = \"patient4\", "
-					 + "\"doctor = ?,"
+					 + "\"patient\" = ?,"
+					 + "\"doctor\" = ?,"
 					 + "\"room\" = ?,"
 					 + "\"date\" = ?,"
 					 + "\"time\" = ?"
@@ -215,6 +214,7 @@ public class AppointmentDao
 	/**
 	 *
 	 * @param id the id of the appointment to delete
+	 *
 	 * @return 0 for success, -1 for failure
 	 */
 	public int delete(int id) {
