@@ -428,7 +428,7 @@ public class Dao
 			resultSet = prepStmnt.getResultSet();
 
 			if (resultSet.next()) { //if res is not empty
-				doc = new Doctor(resultSet.getInt(1), resultSet.getString(2));
+				doc = new Doctor(resultSet.getInt(2), resultSet.getString(3));
 			}
 		} catch (SQLException e) {
 			System.out.println("retrieve doctor: " + e.getMessage());
@@ -445,6 +445,8 @@ public class Dao
 		}
 
 		sql += ";";
+
+		System.out.print(sql);
 		
 		try (Connection conn = getConnection()) {
 			Statement stmnt;
@@ -560,7 +562,7 @@ public class Dao
 			resultSet = prepStmnt.getResultSet();
 
 			if (resultSet.next()) { //if res is not empty
-				room = new Room(resultSet.getString(1));
+				room = new Room(resultSet.getString(2));
 			}
 		} catch (SQLException e) {
 			System.out.println("retrieve room: " + e.getMessage());
@@ -685,7 +687,7 @@ public class Dao
 			resultSet = prepStmnt.getResultSet();
 
 			if (resultSet.next()) { //if res is not empty
-				spec = new Speciality(resultSet.getString(1));
+				spec = new Speciality(resultSet.getString(2));
 			}
 		} catch (SQLException e) {
 			System.out.println("retrieve doctor: " + e.getMessage());
