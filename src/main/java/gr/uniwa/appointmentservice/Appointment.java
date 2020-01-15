@@ -21,29 +21,29 @@ public class Appointment implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	int id;
-	String patient;
-	String doctor;
-	String room;
+	int patient_id;
+	int doctor_id;
+	int room_id;
 	String date;
 	String time;
 
 	public Appointment() {
 	}
 
-	public Appointment(String patient, String doctor, String room, String date, String time) {
+	public Appointment(int patient_id, int doctor_id, int room_id, String date, String time) {
 		this.id = -1;
-		this.patient = patient;
-		this.doctor = doctor;
-		this.room = room;
+		this.patient_id = patient_id;
+		this.doctor_id = doctor_id;
+		this.room_id = room_id;
 		this.date = date;
 		this.time = time;
 	}
 
-	public Appointment(int id, String patient, String doctor, String room, String date, String time) {
+	public Appointment(int id, int patient_id, int doctor_id, int room_id, String date, String time) {
 		this.id = id;
-		this.patient = patient;
-		this.doctor = doctor;
-		this.room = room;
+		this.patient_id = patient_id;
+		this.doctor_id = doctor_id;
+		this.room_id = room_id;
 		this.date = date;
 		this.time = time;
 	}
@@ -56,28 +56,28 @@ public class Appointment implements Serializable
 		this.id = id;
 	}
 
-	public String getPatient() {
-		return patient;
+	public int getPatient_id() {
+		return patient_id;
 	}
 
-	public void setPatient(String patient) {
-		this.patient = patient;
+	public void setPatient_id(int patient_id) {
+		this.patient_id = patient_id;
 	}
 
-	public String getDoctor() {
-		return doctor;
+	public int getDoctor_id() {
+		return doctor_id;
 	}
 
-	public void setDoctor(String doctor) {
-		this.doctor = doctor;
+	public void setDoctor_id(int doctor_id) {
+		this.doctor_id = doctor_id;
 	}
 
-	public String getRoom() {
-		return room;
+	public int getRoom_id() {
+		return room_id;
 	}
 
-	public void setRoom(String room) {
-		this.room = room;
+	public void setRoom_id(int room_id) {
+		this.room_id = room_id;
 	}
 
 	public String getDate() {
@@ -95,4 +95,5 @@ public class Appointment implements Serializable
 	public void setTime(String time) {
 		this.time = time;
 	}
+
 }

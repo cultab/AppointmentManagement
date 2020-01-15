@@ -46,8 +46,12 @@ public class AppointmentsService
 	@GET
 	@Path("/appointments")
 	@Produces(MediaType.APPLICATION_XML)
-	public List<Appointment> getAllAppointments() {
-		return dao.retrieveAllAppointments();
+	public List<Appointment> getAppointments(
+			@QueryParam("patient_id") @DefaultValue("-1") int patient_id,
+			@QueryParam("doctor_id")  @DefaultValue("-1") int doctor_id,
+			@QueryParam("room_id")    @DefaultValue("-1") int room_id) {
+		
+		return dao.retrieveAppointments(patient_id, doctor_id, room_id);
 	}
 
 	// RETRIVE
@@ -172,8 +176,9 @@ public class AppointmentsService
 	@GET
 	@Path("/doctors")
 	@Produces(MediaType.APPLICATION_XML)
-	public List<Doctor> getAllDoctors() {
-		return dao.retrieveAllDoctors();
+	public List<Doctor> getAllDoctors(
+		@QueryParam("spec_id") @DefaultValue("-1") int spec_id) {
+		return dao.retrieveDoctors(spec_id);
 	}
 
 	// RETRIVE
